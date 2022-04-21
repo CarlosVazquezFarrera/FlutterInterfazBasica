@@ -8,10 +8,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: Column(
-        children: const [
-          Image(image: AssetImage('assets/landscape.jpeg')),
-          _Tittle(),
-          _Actions()
+        children: [
+          const Image(image: AssetImage('assets/landscape.jpeg')),
+          const _Tittle(),
+          const _Actions(),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            child: const Text(
+                'Commodo dolor sunt laboris dolore laborum aliquip quis ipsum elit tempor. Et veniam labore aliquip aliqua. Anim sint incididunt aute cupidatat ut.'),
+          )
         ],
       )),
     );
@@ -44,7 +49,13 @@ class _Tittle extends StatelessWidget {
             ],
           ),
           Row(
-            children: const [Icon(Icons.star), Text('41 ')],
+            children: const [
+              Icon(
+                Icons.star,
+                color: Colors.orange,
+              ),
+              Text('41 ')
+            ],
           )
         ],
       ),
@@ -59,13 +70,16 @@ class _Actions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-        _ActionIcon(icon: Icons.phone, texto: 'Call'),
-        _ActionIcon(icon: Icons.near_me, texto: 'Call'),
-        _ActionIcon(icon: Icons.share, texto: 'Call'),
-      ],
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: const [
+          _ActionIcon(icon: Icons.phone, texto: 'Call'),
+          _ActionIcon(icon: Icons.near_me, texto: 'Call'),
+          _ActionIcon(icon: Icons.share, texto: 'Call'),
+        ],
+      ),
     );
   }
 }
@@ -82,7 +96,16 @@ class _ActionIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Icon(icon), Text(texto)],
+      children: [
+        Icon(
+          icon,
+          color: Colors.blue,
+        ),
+        Text(
+          texto,
+          style: const TextStyle(color: Colors.blue),
+        )
+      ],
     );
   }
 }
